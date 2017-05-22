@@ -21,7 +21,7 @@
 #define kDefaultCheckInterval 2.0f
 #define kDefaultPingTimeout 2.0f
 
-#define kMinAutoCheckInterval 0.3f
+#define kMinAutoCheckInterval 0.02f
 #define kMaxAutoCheckInterval 60.0f
 
 NSString *const kRealReachabilityChangedNotification = @"kRealReachabilityChangedNotification";
@@ -160,6 +160,15 @@ NSString *const kRealReachabilityChangedNotification = @"kRealReachabilityChange
 {
     // logic optimization: no need to ping when Local connection unavailable!
     if ([GLocalConnection currentLocalConnectionStatus] == LC_UnReachable)
+  // logic optimization: no need to ping when Local connection unavailable!
+  //    if ([GLocalConnection currentLocalConnectionStatus] == LC_UnReachable)
+  //    {
+  //        if (asyncHandler != nil)
+  //        {
+  //            asyncHandler(RealStatusNotReachable);
+  //        }
+  //        return;
+  //    }
     {
         if (asyncHandler != nil)
         {
