@@ -160,15 +160,6 @@ NSString *const kRealReachabilityChangedNotification = @"kRealReachabilityChange
 {
     // logic optimization: no need to ping when Local connection unavailable!
     if ([GLocalConnection currentLocalConnectionStatus] == LC_UnReachable)
-  // logic optimization: no need to ping when Local connection unavailable!
-  //    if ([GLocalConnection currentLocalConnectionStatus] == LC_UnReachable)
-  //    {
-  //        if (asyncHandler != nil)
-  //        {
-  //            asyncHandler(RealStatusNotReachable);
-  //        }
-  //        return;
-  //    }
     {
         if (asyncHandler != nil)
         {
@@ -176,7 +167,7 @@ NSString *const kRealReachabilityChangedNotification = @"kRealReachabilityChange
         }
         return;
     }
-    
+  
     ReachabilityStatus status = [self currentReachabilityStatus];
     __weak __typeof(self)weakSelf = self;
     [GPingHelper pingWithBlock:^(BOOL isSuccess)
