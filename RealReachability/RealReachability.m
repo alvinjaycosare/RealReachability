@@ -18,7 +18,7 @@
 #endif
 
 #define kDefaultHost @"www.apple.com"
-#define kDefaultCheckInterval 2.0f
+#define kDefaultCheckInterval 0.02f
 #define kDefaultPingTimeout 2.0f
 
 #define kMinAutoCheckInterval 0.02f
